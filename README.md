@@ -3,7 +3,7 @@ Simple Node.JS scraper for [weheartit](https://weheartit.com/)
 
 ## Installation
 
-Use [git](https://pip.pypa.io/en/stable/) to clone the package
+Use [git](https://git-scm.com/) to clone the package
 
 ```bash
 git clone https://github.com/NotII/whiScraper/
