@@ -13,10 +13,12 @@ npm i
 ## Usage
 
 Edit the config.json file and put in a canary webhook
-
 ```
 node index.js
 ```
+
+This does not work on repl
+
 ![WHI Scraper](https://i.imgur.com/m9JdaEk.gif)
 ## License
 [Do What the Fuck You Want to Public License](http://www.wtfpl.net/)
