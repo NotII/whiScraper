@@ -7,6 +7,7 @@ Use [git](https://git-scm.com/) to clone the package
 
 ```bash
 git clone https://github.com/NotII/whiScraper/
+cd whiScraper
 npm i
 ```
 
