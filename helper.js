@@ -83,10 +83,6 @@ function send(url) {
   });
 }
 
-setInterval(() => {
-    completed = []
-}, 12000)
-
 module.exports = {
   getPostCount,
 };
