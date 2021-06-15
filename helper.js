@@ -18,7 +18,7 @@ function getPostCount(account) {
           const t = data(".active").text();
           newData = t.match(/\d+/g);
           if (newData[1]) {
-            scrapePosts(account, Math.round(((parseInt(newData[0]) + parseInt(newData[1]) - 32) / 20) + 2),);
+            scrapePosts(account, Math.round(((parseInt(newData[0]) + parseInt(newData[1]) - 32) / 20) + 2));
           } else {
             const calc = Math.round((parseInt(newData[0]) - 32) / 20) + 2
             if (calc < 1) {
