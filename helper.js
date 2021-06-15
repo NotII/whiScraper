@@ -28,7 +28,7 @@ function getPostCount(account) {
             }
           }
         }
-      });
+      }).catch(() => {getPostCount(account)})
     }
 
 function scrapePosts(result, maxPage) {
