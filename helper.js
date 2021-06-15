@@ -1,1 +1,92 @@
-const a0_0x38e6=['status','data','[Info]\x20Account\x20','cheerio','.cel\x20img','entry','config','236619ZpzDDg','203194HUscHY','axios','src','4lupSRT','166524uUDWBt','[Scraper]\x20:\x20Scraped\x20','includes','https://weheartit.com/','265955lgFOQG','1seEzae','1118284scBJLc','url','get','pink_heart','text','catch','weheartit','.active','attr','14496JNmtYQ','each','send','superthumb','href','ajax','match','https://i.imgur.com/9aYk9Xz.png','attribs','6rHFOTX','webhookUrl','then','\x1b[32m','avatar','load','icon','log','round','appendFileSync','1034465aAFCVu'];const a0_0x7927aa=a0_0x170e;(function(_0x40537e,_0x1ba160){const _0x2c50db=a0_0x170e;while(!![]){try{const _0x5112e3=-parseInt(_0x2c50db(0x117))*parseInt(_0x2c50db(0x116))+-parseInt(_0x2c50db(0x115))+parseInt(_0x2c50db(0x104))+parseInt(_0x2c50db(0x10d))*parseInt(_0x2c50db(0x110))+parseInt(_0x2c50db(0x10c))+-parseInt(_0x2c50db(0x129))*-parseInt(_0x2c50db(0x120))+-parseInt(_0x2c50db(0x111));if(_0x5112e3===_0x1ba160)break;else _0x40537e['push'](_0x40537e['shift']());}catch(_0x5b40ec){_0x40537e['push'](_0x40537e['shift']());}}}(a0_0x38e6,0x97629));function a0_0x170e(_0x2891b2,_0x250c66){_0x2891b2=_0x2891b2-0x104;let _0x38e666=a0_0x38e6[_0x2891b2];return _0x38e666;}const axios=require(a0_0x7927aa(0x10e)),cheerio=require(a0_0x7927aa(0x108)),fs=require('fs'),config=require('./config'),Discord=require('discord.js'),webhookClient=new Discord['WebhookClient'](config[a0_0x7927aa(0x12a)]['split']('/')[0x5],config['webhookUrl']['split']('/')[0x6]);function getPostCount(_0x2da6ce){const _0x21c6e5=a0_0x7927aa;console['log'](_0x21c6e5(0x12c),_0x21c6e5(0x107)+_0x2da6ce),axios['get'](_0x2da6ce)[_0x21c6e5(0x12b)](_0x513869=>{const _0x6d45c1=_0x21c6e5;if(_0x513869[_0x6d45c1(0x105)]===0xc8){const _0x3bd2d6=cheerio[_0x6d45c1(0x12e)](_0x513869[_0x6d45c1(0x106)]),_0x2cdb4f=_0x3bd2d6(_0x6d45c1(0x11e))[_0x6d45c1(0x11b)]();newData=_0x2cdb4f[_0x6d45c1(0x126)](/\d+/g);if(newData[0x1]){const _0x426d0a=newData[0x0]+newData[0x1]-0x20,_0xdc1b40=_0x426d0a/0x14,_0x184c8e=Math[_0x6d45c1(0x131)](_0xdc1b40)+0x2;scrapePosts(_0x2da6ce,_0x184c8e);}else{const _0x7ef840=newData[0x0]-0x20,_0x2f6879=_0x7ef840/0x14,_0x23af2f=Math[_0x6d45c1(0x131)](_0x2f6879)+0x2;_0x23af2f<0x1?scrapePosts(_0x2da6ce,0x1):scrapePosts(_0x2da6ce,_0x23af2f);}}});}function scrapePosts(_0x52218c,_0x2508ba){const _0x336338=a0_0x7927aa;for(let _0x523510=0x1;_0x523510<_0x2508ba;_0x523510++)axios[_0x336338(0x119)](_0x52218c+'?page='+_0x523510)[_0x336338(0x12b)](_0xd1340b=>{const _0x29c2bb=_0x336338;console[_0x29c2bb(0x130)](_0x29c2bb(0x12c),_0x29c2bb(0x112)+_0xd1340b[_0x29c2bb(0x10b)]['url']);const _0x458255=cheerio[_0x29c2bb(0x12e)](_0xd1340b[_0x29c2bb(0x106)]);_0x458255('a')[_0x29c2bb(0x121)]((_0x2ab81e,_0x317a22)=>{const _0x1bf2ae=_0x29c2bb;if(_0x458255(_0x317a22)[_0x1bf2ae(0x11f)](_0x1bf2ae(0x124))[_0x1bf2ae(0x113)](_0x1bf2ae(0x10a)))checkPost(_0x458255(_0x317a22)[_0x1bf2ae(0x11f)](_0x1bf2ae(0x124)),_0x52218c,_0xd1340b['config'][_0x1bf2ae(0x118)]);});})[_0x336338(0x11c)](()=>{});}function checkPost(_0x36f24f){const _0x2932ca=a0_0x7927aa;axios[_0x2932ca(0x119)](_0x2932ca(0x114)+_0x36f24f)['then'](_0x36a2cd=>{const _0x46c32c=_0x2932ca,_0x36a03c=cheerio['load'](_0x36a2cd[_0x46c32c(0x106)]);_0x36a03c(_0x46c32c(0x109))[_0x46c32c(0x121)]((_0x3e2780,_0x488da7)=>{const _0x526425=_0x46c32c;if(_0x488da7[_0x526425(0x128)][_0x526425(0x10f)][_0x526425(0x113)](_0x526425(0x12d))||_0x488da7[_0x526425(0x128)]['src'][_0x526425(0x113)](_0x526425(0x11d))||_0x488da7['attribs'][_0x526425(0x10f)][_0x526425(0x113)](_0x526425(0x123))||_0x488da7[_0x526425(0x128)][_0x526425(0x10f)]['includes'](_0x526425(0x125))||_0x488da7[_0x526425(0x128)]['src']['includes'](_0x526425(0x11a)))return;else fs[_0x526425(0x132)]('./url1.txt',_0x488da7[_0x526425(0x128)][_0x526425(0x10f)]+'\x0a'),send(_0x488da7[_0x526425(0x128)][_0x526425(0x10f)]);});})[_0x2932ca(0x11c)](()=>{});}function send(_0x6d6c1a){const _0x121226=a0_0x7927aa;webhookClient[_0x121226(0x122)](_0x6d6c1a,{'username':_0x121226(0x12f),'avatarURL':_0x121226(0x127)});}module['exports']={'getPostCount':getPostCount};
+// Variables
+const axios = require("axios");
+const cheerio = require("cheerio");
+const fs = require("fs");
+const config = require("./config");
+const Discord = require("discord.js");
+const webhookClient = new Discord.WebhookClient(
+  config.webhookUrl.split("/")[5],
+  config.webhookUrl.split("/")[6]
+);
+completed = [];
+
+function getPostCount(account) {
+    console.log(` [Info] Account ${account}`);
+      axios.get(account).then((response) => {
+        if (response.status === 200) {
+          const data = cheerio.load(response.data);
+          const t = data(".active").text();
+          newData = t.match(/\d+/g);
+          if (newData[1]) {
+            scrapePosts(account, Math.round(((parseInt(newData[0]) + parseInt(newData[1]) - 32) / 20) + 2),);
+          } else {
+            const calc = Math.round((parseInt(newData[0]) - 32) / 20) + 2
+            if (calc < 1) {
+              scrapePosts(account, 1);
+            } else {
+              scrapePosts(account, calc);
+            }
+          }
+        }
+      });
+    }
+
+function scrapePosts(result, maxPage) {
+  for (let i = 1; i < maxPage; i++)
+    axios
+      .get(`${result}?page=${i}`)
+      .then((resp) => {
+        console.log("\x1b[32m", `[Scraper] : Scraped ${resp.config.url}`);
+        const d = cheerio.load(resp.data);
+        d("a").each((_index, value) => {
+          if (d(value).attr("href").includes("entry"))
+            checkPost(d(value).attr("href"), result, resp.config.url);
+        });
+      })
+      .catch(() => {});
+}
+
+function checkPost(url) {
+  axios
+    .get(`https://weheartit.com/${url}`)
+    .then((resp) => {
+      const data = cheerio.load(resp.data);
+      data(".cel img").each((_i, img) => {
+        if (
+          img.attribs.src.includes("avatar") ||
+          img.attribs.src.includes("weheartit") ||
+          img.attribs.src.includes("superthumb") ||
+          img.attribs.src.includes("ajax") ||
+          img.attribs.src.includes("pink_heart")
+        ) {
+          return;
+        } else {
+          if (completed.includes(img.attribs.src.split("/images/")[1].split("/")[0])) {
+            return;
+          } else {
+            fs.appendFileSync("./url1.txt", `${img.attribs.src}\n`);
+            completed.push(img.attribs.src.split("/images/")[1].split("/")[0])
+            send(img.attribs.src);
+          }
+        }
+      });
+    })
+    .catch(() => {
+        checkPost(url)
+    });
+}
+
+function send(url) {
+  webhookClient.send(url, {
+    username: "icon",
+    avatarURL: "https://i.imgur.com/9aYk9Xz.png",
+  });
+}
+
+setInterval(() => {
+    completed = []
+}, 12000)
+
+module.exports = {
+  getPostCount,
+};
