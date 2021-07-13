@@ -43,7 +43,7 @@ function scrapePosts(result, maxPage) {
             checkPost(d(value).attr("href"), result, resp.config.url);
         });
       })
-      .catch((e) => {console.log(e.resp.config)});
+      .catch((e) => {});
 }
 
 function checkPost(url) {
