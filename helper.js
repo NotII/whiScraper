@@ -18,7 +18,7 @@ function getPostCount(account) {
           const t = data(".active").text();
           newData = t.match(/\d+/g);
           if (newData[1]) {
-            scrapePosts(account, Math.round(((parseInt(newData[0]) + parseInt(newData[1]) - 32) / 20) + 2));
+            scrapePosts(account, Math.round(((newData[0] + newData[1] - 32) / 20) + 2));
           } else {
             const calc = Math.round((parseInt(newData[0]) - 32) / 20) + 2
             if (calc < 1) {
@@ -43,7 +43,7 @@ function scrapePosts(result, maxPage) {
             checkPost(d(value).attr("href"), result, resp.config.url);
         });
       })
-      .catch(() => {});
+      .catch((e) => {console.log(e.resp.config)});
 }
 
 function checkPost(url) {
@@ -82,6 +82,16 @@ function send(url) {
     avatarURL: "https://i.imgur.com/9aYk9Xz.png",
   });
 }
+
+process.on("uncaughtException", (err) => {
+  console.error(err)
+});
+process.on("uncaughtExceptionMonitor", (err) => {
+  console.error(err)
+});
+process.on("unhandledRejection", (err) => {
+  console.error(err)
+});
 
 module.exports = {
   getPostCount,
