@@ -1,7 +1,6 @@
 // Variables
 const axios = require("axios");
 const cheerio = require("cheerio");
-const fs = require("fs");
 const config = require("./config");
 const Discord = require("discord.js");
 const webhookClient = new Discord.WebhookClient(
@@ -9,6 +8,13 @@ const webhookClient = new Discord.WebhookClient(
   config.webhookUrl.split("/")[6]
 );
 completed = [];
+
+if(config.cookie.length < 20){ 
+  console.log(`Scraping with a max of 100 pages as no cookie was set in config`)
+  cookie = false;
+} else {
+  cookie = config.cookie
+}
 
 function getPostCount(account) {
     console.log(` [Info] Account ${account}`);
@@ -20,7 +26,7 @@ function getPostCount(account) {
           if (newData[1]) {
             scrapePosts(account, Math.round(((newData[0] + newData[1] - 32) / 20) + 2));
           } else {
-            const calc = Math.round((parseInt(newData[0]) - 32) / 20) + 2
+            const calc = Math.round(((newData[0]) - 32) / 20) + 2
             if (calc < 1) {
               scrapePosts(account, 1);
             } else {
@@ -28,13 +34,21 @@ function getPostCount(account) {
             }
           }
         }
-      }).catch(() => {getPostCount(account)})
+      }).catch((e) => {getPostCount(account)})
     }
 
-function scrapePosts(result, maxPage) {
-  for (let i = 1; i < maxPage; i++)
+function scrapePosts(result, maxPage) {  
+
+  if(cookie === false && maxPage > 100) { maxPage = 100; } 
+  if(cookie != false && maxPage > 1000) { maxPage = 1000; }
+  
+  for (let i = 1; i < maxPage; i++) {
     axios
-      .get(`${result}?page=${i}`)
+      .get(`${result}?page=${i}`, {
+        headers: {
+          "Cookie": (cookie ? `login_token=${cookie}` : null)
+        }
+      })
       .then((resp) => {
         console.log("\x1b[32m", `[Scraper] : Scraped ${resp.config.url}`);
         const d = cheerio.load(resp.data);
@@ -43,7 +57,8 @@ function scrapePosts(result, maxPage) {
             checkPost(d(value).attr("href"), result, resp.config.url);
         });
       })
-      .catch((e) => {});
+      .catch(() => {});
+    }
 }
 
 function checkPost(url) {
@@ -64,9 +79,8 @@ function checkPost(url) {
           if (completed.includes(img.attribs.src.split("/images/")[1].split("/")[0])) {
             return;
           } else {
-            fs.appendFileSync("./url1.txt", `${img.attribs.src}\n`);
-            completed.push(img.attribs.src.split("/images/")[1].split("/")[0])
             send(img.attribs.src);
+            completed.push(img.attribs.src.split("/images/")[1].split("/")[0])
           }
         }
       });
@@ -80,18 +94,12 @@ function send(url) {
   webhookClient.send(url, {
     username: "icon",
     avatarURL: "https://i.imgur.com/9aYk9Xz.png",
-  });
+  }).catch(() => send(url))
 }
 
-process.on("uncaughtException", (err) => {
-  console.error(err)
-});
-process.on("uncaughtExceptionMonitor", (err) => {
-  console.error(err)
-});
-process.on("unhandledRejection", (err) => {
-  console.error(err)
-});
+setInterval(() => {
+  completed = [];
+}, 120000)
 
 module.exports = {
   getPostCount,
