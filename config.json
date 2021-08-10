@@ -1,3 +1,4 @@
 {
-    "webhookUrl":"canary hook"
+    "webhookUrl":"canary hook",
+    "cookie":"yes"
 }
